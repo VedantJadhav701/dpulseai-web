@@ -82,16 +82,15 @@ export default function Hero() {
           </svg>
         </div>
 
-        {/* Center Headline & Subtitle */}
+        {/* Center Headline & Subtitle matching DPULSE AI Identity */}
         <div className="relative z-10 max-w-4xl mx-auto my-auto flex flex-col items-center">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal text-[#161514] tracking-tight leading-[1.08] mb-6 font-sans">
-            The research &amp; data engine<br />
-            <span className="font-normal">for Physical AI.</span>
+            We build the intelligence,<br />
+            <span className="font-normal">not the machines.</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-[#2a2623] max-w-2xl mx-auto font-sans font-normal leading-relaxed">
-            We turn human experience into physical understanding<br className="hidden sm:inline" />
-            for the robots that work beside us.
+            General-purpose intelligence for the physical world — foundational robotics brains, autonomous agriculture, and sovereign enterprise AI.
           </p>
         </div>
 
