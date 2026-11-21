@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #141312;
+    --paper: #faf9f6;
+    --paper-card: #ffffff;
+    --brand-orange: #ed6538;
+    --hero-peach: #f79c78;
+    --muted: #74726d;
+    --border-subtle: #e6e4df;
+    --border-strong: #d5d3cc;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #141312;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Light Theme Compatibility Utilities */
+.bg-cream {
+  background-color: #fbfaf8 !important;
+}
+.bg-cream-card {
+  background-color: #ffffff !important;
+}
+.text-text-black {
+  color: #141312 !important;
+}
+.text-text-mid {
+  color: #5c5a54 !important;
+}
+.text-gold {
+  color: #ed6538 !important;
+}
+.bg-gold {
+  background-color: #ed6538 !important;
+}
+.border-gold {
+  border-color: #ed6538 !important;
+}
+.border-border {
+  border-color: #e8e6e1 !important;
+}
+.border-gray-mid {
+  border-color: #e4e2dc !important;
+}
+
+/* Override any legacy dark classes to maintain strict 100% light theme across all pages */
+.bg-navy,
+.bg-navy-dark,
+.bg-navy-light {
+  background-color: #f7f6f2 !important;
+  color: #141312 !important;
+}
+.bg-navy-card {
+  background-color: #ffffff !important;
+  color: #141312 !important;
+  border-color: #e8e6e1 !important;
+}
+
+/* Infinite Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Blueprint Grid */
+.bg-blueprint-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.bg-dot-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f7f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d5cd;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ed6538;
+}
+
+/* Schematic Engine - Fix SVG Rendering and Prevent Default Black Fills */
+.schematic-engine {
+  --ink: #2b2825;
+  --ink-2: rgba(43, 40, 37, 0.72);
+  --rule: rgba(43, 40, 37, 0.18);
+  --signal: #ed6538;
+  --soft: rgba(43, 40, 37, 0.08);
+  --sheet: #eae8e3;
+  --paper: #ffffff;
+  color: var(--ink);
+}
+
+/* Force standard SVG vector shapes to fill:none by default so they NEVER turn solid black */
+.schematic-engine path,
+.schematic-engine line,
+.schematic-engine circle,
+.schematic-engine polyline,
+.schematic-engine polygon {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.schematic-engine text {
+  fill: var(--ink) !important;
+  user-select: none;
+}
+
+.schematic-engine .frame { fill: none !important; stroke: var(--ink); stroke-width: 1.2px; }
+.schematic-engine .thin { fill: none !important; stroke: var(--ink); stroke-width: 0.8px; }
+.schematic-engine .mid { fill: none !important; stroke: var(--ink); stroke-width: 1.3px; }
+.schematic-engine .thick { fill: none !important; stroke: var(--ink); stroke-width: 2.2px; }
+.schematic-engine .paper { fill: var(--sheet) !important; stroke: none !important; }
+.schematic-engine .paperfill { fill: var(--sheet) !important; }
+.schematic-engine .center { stroke: var(--ink-2); stroke-width: 0.8px; stroke-dasharray: 22 4 3 4; fill: none !important; }
+.schematic-engine .dimln { stroke: var(--ink); stroke-width: 0.9px; fill: none !important; }
+.schematic-engine .stg { font-family: ui-monospace, monospace; letter-spacing: 0.12em; fill: var(--ink) !important; font-size: 13px; font-weight: 600; }
+.schematic-engine .stg.hero { fill: var(--signal) !important; font-weight: 700; }
+.schematic-engine .lane { fill: none !important; stroke: var(--ink); stroke-width: 1.6px; }
+.schematic-engine .flange { fill: var(--ink) !important; stroke: none !important; }
+.schematic-engine .gate { fill: url(#hs-hatch) !important; stroke: var(--ink); stroke-width: 1.3px; }
+.schematic-engine .lamp { fill: var(--sheet) !important; stroke: var(--ink); stroke-width: 1px; }
+.schematic-engine .lamp.on { fill: var(--signal) !important; stroke: var(--signal); }
+.schematic-engine .hopper { fill: var(--paper) !important; stroke: var(--ink); stroke-width: 1.3px; }
+.schematic-engine .pulley { fill: var(--sheet) !important; stroke: var(--ink); stroke-width: 1.6px; }
+.schematic-engine .belt { fill: none !important; stroke: var(--signal); stroke-width: 2.4px; stroke-dasharray: 3 3; }
+.schematic-engine .hand { stroke: var(--signal); stroke-width: 2px; fill: none !important; stroke-linecap: round; }
+.schematic-engine .beltc { fill: var(--paper) !important; stroke: var(--ink); stroke-width: 1.3px; }
+.schematic-engine .tagger { fill: var(--ink) !important; stroke: none !important; }
+.schematic-engine .rail { stroke: var(--ink); stroke-width: 1.2px; stroke-dasharray: 6 4; fill: none !important; }
+.schematic-engine .tagname { font-family: ui-monospace, monospace; letter-spacing: 0.08em; fill: var(--signal) !important; font-size: 11px; font-weight: 600; }
+.schematic-engine .scanner { fill: rgba(237, 101, 56, 0.08) !important; stroke: var(--ink); stroke-width: 2.2px; }
+.schematic-engine .scan { stroke: var(--signal); stroke-width: 2px; stroke-dasharray: 6 4; fill: none !important; }
+.schematic-engine .inlet { fill: var(--sheet) !important; stroke: var(--ink); stroke-width: 1.6px; }
+.schematic-engine .g { fill: none !important; stroke: var(--ink); stroke-width: 1.5px; stroke-linecap: round; stroke-linejoin: round; }
+.schematic-engine .gf { fill: var(--signal) !important; stroke: none !important; }
+.schematic-engine .speck { fill: var(--ink-2) !important; opacity: 0.55; stroke: none !important; }
+.schematic-engine .leader { stroke: var(--ink); stroke-width: 0.8px; fill: none !important; }
+.schematic-engine .lfill { fill: var(--ink) !important; stroke: none !important; }
+.schematic-engine .balloon { fill: var(--sheet) !important; stroke: var(--ink); stroke-width: 1.2px; }
+.schematic-engine .bal { font-family: ui-monospace, monospace; fill: var(--ink) !important; font-size: 12px; font-weight: 600; }
+.schematic-engine .lname { font-family: ui-monospace, monospace; letter-spacing: 0.1em; fill: var(--ink) !important; font-size: 12px; font-weight: 600; }
+.schematic-engine .t9 { font-family: ui-monospace, monospace; fill: var(--ink-2) !important; letter-spacing: 0.06em; font-size: 9.5px; }
+.schematic-engine .t10 { fill: var(--ink-2) !important; font-size: 12px; }
+.schematic-engine .t10o { fill: var(--signal) !important; font-size: 12px; font-weight: 600; }
+.schematic-engine .out { fill: var(--ink) !important; letter-spacing: 0.02em; font-size: 16px; font-weight: 800; }
+.schematic-engine .pk { stroke: var(--ink); stroke-width: 1.3px; fill: var(--sheet) !important; }
+.schematic-engine .tick { stroke: var(--ink); stroke-width: 1.6px; fill: none !important; }
+.schematic-engine .trail { fill: var(--ink-2) !important; opacity: 0.6; stroke: none !important; }
+.schematic-engine .glabel { font-family: ui-monospace, monospace; fill: var(--ink) !important; letter-spacing: 0.03em; font-size: 10.5px; }
+.schematic-engine .plabel { font-family: ui-monospace, monospace; fill: var(--ink) !important; letter-spacing: 0.1em; font-size: 11px; font-weight: 600; }
+.schematic-engine .rdname { font-family: ui-monospace, monospace; fill: var(--signal) !important; letter-spacing: 0.08em; font-size: 11px; font-weight: 600; }
+.schematic-engine .rdsub { fill: var(--ink-2) !important; font-size: 11.5px; }
+.schematic-engine .fmt { font-family: ui-monospace, monospace; fill: var(--ink) !important; font-size: 10.5px; }
+
+/* Feedback loop lines */
+.schematic-engine .loop { fill: none !important; stroke: var(--ink); stroke-width: 1.2px; stroke-dasharray: 9 6; }
+.schematic-engine .loop.hitl { stroke: var(--signal); }
+.schematic-engine .loop.lab { stroke: var(--ink); }
+.schematic-engine .jn { fill: var(--ink) !important; stroke: none !important; }
+.schematic-engine .jn.hitl { fill: var(--signal) !important; }
+.schematic-engine .jn.lab { fill: var(--ink) !important; }
+.schematic-engine .looplab { fill: var(--ink) !important; }
+.schematic-engine .looplab.hitl { fill: var(--signal) !important; }
+.schematic-engine .looplab.lab { fill: var(--ink) !important; }
+.schematic-engine .fbpk { stroke: var(--ink); stroke-width: 1.3px; fill: var(--sheet) !important; }
+.schematic-engine .fbpk.hitl { stroke: var(--signal); }
+.schematic-engine .fbpk.lab { stroke: var(--ink); }
+
+/* Orange output block and hero labelling zone */
+.schematic-engine .outarw { fill: var(--signal) !important; stroke: none !important; }
+.schematic-engine .heroband { fill: rgba(237, 101, 56, 0.06) !important; stroke: rgba(237, 101, 56, 0.25) !important; stroke-width: 1.2px; stroke-dasharray: 6 4; }
+.schematic-engine .herotag { fill: var(--signal) !important; stroke: none !important; }
+
+/* Dynamic Animations */
+@keyframes hsflow {
+  to {
+    stroke-dashoffset: -15px;
+  }
+}
+
+@keyframes spinPulley {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.schematic-engine .loop,
+.schematic-engine .belt,
+.schematic-engine .rail {
+  animation: 1.2s linear infinite hsflow;
+}
+
+.schematic-engine .spin,
+.schematic-engine .pulley {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: 4s linear infinite spinPulley;
+}
