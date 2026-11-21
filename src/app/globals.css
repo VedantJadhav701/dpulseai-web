@@ -247,3 +247,100 @@
   transform-box: fill-box;
   animation: 4s linear infinite spinPulley;
 }
+
+/* Four Senses Real-Time Live Animations */
+@keyframes audioPulseBar {
+  0%, 100% {
+    height: 6px;
+    opacity: 0.4;
+  }
+  50% {
+    height: 38px;
+    opacity: 1;
+  }
+}
+
+@keyframes reticleScan {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(5px, -3px) scale(1.06);
+  }
+  50% {
+    transform: translate(-4px, 4px) scale(0.96);
+  }
+  75% {
+    transform: translate(-2px, -4px) scale(1.04);
+  }
+}
+
+@keyframes laserSweep {
+  0% {
+    top: 0%;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.2;
+  }
+}
+
+@keyframes kinematicsFlow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes kinematicsFlowSlow {
+  to {
+    stroke-dashoffset: 120;
+  }
+}
+
+@keyframes gripPressure {
+  0%, 100% {
+    width: 24%;
+  }
+  25% {
+    width: 65%;
+  }
+  55% {
+    width: 84%;
+  }
+  80% {
+    width: 42%;
+  }
+}
+
+@keyframes hapticRipple {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -60;
+  }
+}
+
+/* Smooth Scroll Reveal */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-section-reveal {
+  animation: sectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
